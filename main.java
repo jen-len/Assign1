@@ -6,6 +6,7 @@
  * 
  */
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class main {
 
@@ -15,7 +16,9 @@ public class main {
 		Scanner reader = new Scanner(System.in);
 		int userInput = 0; 
 		int fibSeries = 0; 
-		
+		long startTime = System.nanoTime();
+		long endTime = System.nanoTime();
+		long timeElapsed = endTime- startTime;
 		
 			// Welcome the user
 			System.out.println("Welcome to the Fibonacci Sequence Program");
@@ -24,21 +27,19 @@ public class main {
 			System.out.println("Please Enter a number less than 50 =>");
 			userInput = reader.nextInt();
 			reader.close();
-			System.out.println("UserInput:" + userInput);
+			System.out.println("UserInput=>" + userInput);
 			
 			//loops start at 0
-			userInput-= 1;
 			
-			do {
-				fibSeries = fiboSeriesRec(userInput);
-				System.out.println(fibSeries);
-				userInput--;
-				
-			}while(userInput!=-1);
-			
+			for(int i = 0; i < userInput;i++ ) {
+				fibSeries = fiboSeriesRec(i);
+				System.out.print(fibSeries+" ");
+			}
+			 System.out.println("\n\nElapsed time in nanoseconds is: " + timeElapsed);	
+			 
 			
 	}
-		// fiboSeriesRec a recursive function
+		// fiboSeriesRec a recursive function that calls itself
 		
 		public static int fiboSeriesRec(int x){
 			
@@ -51,6 +52,17 @@ public class main {
 			
 			
 		}
-}
-		//fiboSeriesIte
 		
+		//fiboSeriesIte: iterative function that uses a for loop
+		public static int fiboSeriesIte(int x){
+			int fib1 = 0;
+			for (int i = 0; i < x; i++) {
+				
+			}
+			
+		}
+
+}
+		
+		
+
